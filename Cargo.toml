@@ -7,3 +7,4 @@ edition = "2024"
 
 [dependencies]
 bevy = { version = "0.15.3", features = ["wayland"] }
+leafwing-input-manager = "0.16.0"

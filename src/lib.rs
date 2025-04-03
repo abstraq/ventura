@@ -1,3 +1,5 @@
+pub(crate) mod input;
+
 use bevy::app::PluginGroupBuilder;
 use bevy::prelude::*;
 
@@ -15,6 +17,7 @@ impl PluginGroup for VenturaPlugins {
 	fn build(self) -> PluginGroupBuilder {
 		PluginGroupBuilder::start::<Self>()
 			.add(register_state)
+			.add(input::plugin)
 			.build()
 	}
 }
