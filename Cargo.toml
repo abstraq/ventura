@@ -1,0 +1,9 @@
+[package]
+name = "ventura"
+description = "A top down survival game written with bevy."
+authors = ["abstraq <contact@abstraq.dev>"]
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bevy = { version = "0.15.3", features = ["wayland"] }
