@@ -1,6 +1,8 @@
 pub(crate) mod camera;
 pub(crate) mod input;
+pub(crate) mod player;
 
+use avian2d::prelude::*;
 use bevy::app::PluginGroupBuilder;
 use bevy::prelude::*;
 
@@ -17,9 +19,12 @@ pub struct VenturaPlugins;
 impl PluginGroup for VenturaPlugins {
 	fn build(self) -> PluginGroupBuilder {
 		PluginGroupBuilder::start::<Self>()
+			.add_group(PhysicsPlugins::default().with_length_unit(100.0))
+			.add(PhysicsDebugPlugin::default())
 			.add(register_state)
 			.add(camera::plugin)
 			.add(input::plugin)
+			.add(player::plugin)
 			.build()
 	}
 }
@@ -31,8 +36,8 @@ impl PluginGroup for VenturaPlugins {
 /// - [`GameState::Gameplay`] - Used when the game is fully loaded and ready.
 #[derive(States, Default, Clone, Copy, Hash, PartialEq, Eq, Debug)]
 pub enum GameState {
-	#[default]
 	Loading,
+	#[default]
 	Gameplay,
 }
 
