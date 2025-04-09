@@ -22,12 +22,6 @@ pub(crate) struct Player;
 ///
 /// This system is run during the [`Startup`] schedule.
 fn spawn_player(mut commands: Commands) {
-	debug!("Spawning the player entity.");
-	commands.spawn((
-		Camera2d,
-		OrthographicProjection { scale: 0.3, ..OrthographicProjection::default_2d() },
-	));
-
 	commands.spawn((
 		Player,
 		MovementState::Idle,
@@ -37,4 +31,6 @@ fn spawn_player(mut commands: Commands) {
 		Sprite::from_color(Color::srgba(255.0, 255.0, 0.0, 1.0), Vec2::new(16.0, 32.0)),
 		InputManagerBundle::with_map(InputAction::default_map()),
 	));
+
+	debug!("Spawned the player entity.");
 }
