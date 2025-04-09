@@ -1,3 +1,4 @@
+pub(crate) mod camera;
 pub(crate) mod input;
 
 use bevy::app::PluginGroupBuilder;
@@ -17,6 +18,7 @@ impl PluginGroup for VenturaPlugins {
 	fn build(self) -> PluginGroupBuilder {
 		PluginGroupBuilder::start::<Self>()
 			.add(register_state)
+			.add(camera::plugin)
 			.add(input::plugin)
 			.build()
 	}
